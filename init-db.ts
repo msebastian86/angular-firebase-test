@@ -4,12 +4,13 @@ import {COURSES, findLessonsForCourse} from './db-data';
 import * as firebase from 'firebase';
 
 var config = {
-    apiKey: "AIzaSyDNPCbN20dZrAbGChRjyBSDmu2uRiPyBMk",
-    authDomain: "test-a6f61.firebaseapp.com",
-    databaseURL: "https://test-a6f61.firebaseio.com",
-    projectId: "test-a6f61",
-    storageBucket: "test-a6f61.appspot.com",
-    messagingSenderId: "24603706805"
+  apiKey: "AIzaSyCpbp1YvfTDivnE_j0Ce8Yj8Cauc67vbLc",
+  authDomain: "fir-course-4ebd8.firebaseapp.com",
+  databaseURL: "https://fir-course-4ebd8.firebaseio.com",
+  projectId: "fir-course-4ebd8",
+  storageBucket: "fir-course-4ebd8.appspot.com",
+  messagingSenderId: "872230880917",
+  appId: "1:872230880917:web:4bc4a44a97a35a36"
 };
 
 console.log("Uploading data to the database with the following config:\n");

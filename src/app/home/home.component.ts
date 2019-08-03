@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Course} from "../model/course";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
+import { AngularFirestore } from '@angular/fire/firestore';
+import { CoursesService } from '../services/courses.service';
 
 
 
@@ -11,16 +13,27 @@ import {map} from "rxjs/operators";
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+    courses$: Observable<Course[]>;
+    advancedCourses$: Observable<Course[]>;
+    beginnersCourses$: Observable<Course[]>;
 
-
-    constructor() {
-
+    constructor(private coursesService: CoursesService) {
     }
 
     ngOnInit() {
+        this.reloadCourses();
+    }
 
+    reloadCourses() {
+        this.courses$ = this.coursesService.loadAllCourses();
 
-
+        this.advancedCourses$ = this.courses$.pipe(
+            map(courses => courses.filter(
+                course => course.categories.includes("ADVANCED"))));
+        
+        this.beginnersCourses$ = this.courses$.pipe(
+            map(courses => courses.filter(
+                course => course.categories.includes("BEGINNER"))));
     }
 
 }

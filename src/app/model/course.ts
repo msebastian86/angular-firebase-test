@@ -1,5 +1,3 @@
-
-
 export interface Course {
     id:string;
     titles: {
